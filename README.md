@@ -18,7 +18,8 @@ Among those: renewable energy.
 
 Prediction algorithm
 
+Using the "caret" library a simple linear regression model is implemented using 27 years of data. The predictions is generated using the data input and the model generated. 
 
 
-
+Here is the link in shinyapps:  https://jpmartinez.shinyapps.io/RenewableEnergy/
 
