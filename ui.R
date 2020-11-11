@@ -1,14 +1,6 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
-library(shiny)
 library(plotly)
+library(shiny)
+
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -19,9 +11,12 @@ shinyUI(fluidPage(
     tabsetPanel(
         tabPanel("See country data", 
                  sidebarLayout(
-                     sidebarPanel(selectInput("countries", "Select a country", as.list(unique(worldData$Country))),
+                     sidebarPanel(selectInput("countries", "Select a country", as.list(unique(worldData2$Country))),
                                   actionButton("action", "Show")),
                          mainPanel(
+                             h3("In this tap you can historical information (from 1990 to 2016) about the use of renewable energy in each country"),
+                             h3("Select a country in the control on the left to see its information"),
+                             p(""),
                              "This are the main sources of renewable energy consumption (measurements in Co2)",
                              plotlyOutput(outputId="sources"),
                              "Here we can see the distribution of renewable energy and total energy compsumption from 1990 to 2016",
@@ -33,7 +28,7 @@ shinyUI(fluidPage(
         tabPanel("Predict data",
             sidebarLayout(
                 sidebarPanel(
-                    "Make sure you have selected a country in the previous tab",
+                    h2("Make sure you have selected a country in the previous tab"),
                     numericInput("Energy", 
                                  p("Input energy Consumption value"), 
                                  value = 1),             
